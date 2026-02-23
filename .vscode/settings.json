@@ -1,0 +1,57 @@
+{
+    "robotcode.analysis.progressMode": "detailed",
+    "robotcode.extraArgs": [
+        "--color"
+    ],
+    "files.exclude": {
+        "**/.*_cache": true, //i am hiding things from you
+        "**/__pycache__": true
+    },
+    "robotcode.robot.outputDir": "Logs",
+    "robotcode.documentationServer.startOnDemand": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "editor.unicodeHighlight.ambiguousCharacters": true,
+    "robotcode.analysis.findUnusedReferences": true,
+    "robotcode.robocop.ignoreGitDir": true,
+    "terminal.integrated.suggest.enabled": true,
+    "autoDocstring.docstringFormat": "sphinx",
+    "autoDocstring.includeExtendedSummary": true,
+    "autoDocstring.guessTypes": true,
+    "autoDocstring.includeName": true,
+    "files.autoSave": "onFocusChange",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "postman.settings.dotenv-detection-notification-visibility": false,
+    "pylint.args": [
+        "--rcfile=config/.pylintrc"
+    ],
+    "pylint.ignorePatterns": [
+        "*.ipynb"
+    ],
+    "pylint.importStrategy": "useBundled",
+    "editor.minimap.enabled": false,
+    "python.analysis.diagnosticMode": "workspace",
+    "robotcode.analysis.diagnosticMode": "workspace",
+    "robotcode.robocop.configFile": "robot.toml",
+    "robotcode.testExplorer.enabled": true,
+    "robotcode.robocop.enabled": true,
+    "robotcode.workspace.excludePatterns": [
+        ".venv/",
+        ".pytest_cache/",
+        "__pycache__/",
+    ],
+    "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.languageServerMode": "light",
+},
+"python-envs.defaultEnvManager": "ms-python.python:venv",
+"python-envs.pythonProjects": [],
+"python.analysis.autoImportCompletions": false,
+}

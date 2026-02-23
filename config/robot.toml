@@ -1,0 +1,73 @@
+[tool.robocop]
+
+[tool.robocop.lint]
+
+ignore = ["DEPR05", "VAR04", "VAR05", "DEPR06", "NAME08", "VAR07", "MISC13","LEN03","LEN08"]
+[tool.robotcode-analyze.modifiers]
+ignore = ["KeywordNotUsed","VariableNotUsed"]
+
+configure = [
+    "line-too-long.line_length=110",
+    "wrong-case-in-keyword-name.pattern=((\b[A-Z0-9].*?\b|\".*\"|'.*')\\s?)*",
+    "too-long-test-case.ignore_docs=True",
+    "too-long-test-case.max_len=40",
+    "too-many-calls-in-test-case.max_calls=35",
+    "too-many-calls-in-keyword.max_calls=15",
+]
+
+[tool.robotidy]
+diff = true
+overwrite = false
+verbose = true
+separator = "space"
+spacecount = 4
+line_length = 120
+lineseparator = "native"
+skip_gitignore = true
+ignore_git_dir = true
+
+configure = [
+    "AddMissingEnd:enabled=True",
+    "NormalizeSeparators:enabled=True",                                             #Maybe
+    "DiscardEmptySections:enabled=True",
+    "MergeAndOrderSections:enabled=True",
+    "RemoveEmptySettings:enabled=True",
+    "ReplaceEmptyValues:enabled=True",
+    "ReplaceWithVAR:enabled=False",
+    "NormalizeAssignments:enabled=True",
+    "NormalizeAssignments:equal_sign_type=space_and_equal_sign",
+    "NormalizeAssignments:equal_sign_type_variables=equal_sign",
+    "GenerateDocumentation:enabled=False",                                          # True
+    "GenerateDocumentation;doc_template=Resources/Templates/sphinx_template.jinja",
+    "OrderSettings:enabled=True",
+    "OrderSettingsSection:enabled=False",
+    "NormalizeTags:enabled=False",
+    "OrderTags:enabled=False",
+    "RenameVariables:enabled=True",
+    "RenameVariables:variables_section_case=ignore",                                #upper
+    "RenameVariables:settings_section_case=ignore",                                 #upper
+    "RenameVariables:unknown_variables_case=ignore",
+    "RenameVariables:convert_camel_case=True",
+    # "RenameVariables:variable_separator=space",
+    # "IndentNestedKeywords:enabled=True",
+    "AlignSettingsSection:enabled=False",        #True
+    "AlignVariablesSection:enabled=False",       #True
+    "AlignTemplatedTestCases:enabled=False",     #True
+    "AlignTestCasesSection:enabled=False",       #True
+    "AlignKeywordsSection:enabled=False",        #True
+    "NormalizeNewLines:enabled=True",
+    "NormalizeSectionHeaderName:enabled=True",
+    "NormalizeSettingName:enabled=True",
+    "ReplaceRunKeywordIf:enabled=True",
+    "SplitTooLongLine:enabled=True",
+    "SmartSortKeywords:enabled=False",           #True | no clue what this does
+    "RenameTestCases:enabled=True",              #True | look at config
+    "RenameTestCases:capitalize_each_word=True",
+
+    "RenameKeywords:enabled=True",
+    "ReplaceReturns:enabled=True",
+    "ReplaceBreakContinue:enabled=True",
+    "InlineIf:enabled=False",
+    "Translate:enabled=False",           # No, i don't want the code base in multiple languages lol
+    "NormalizeComments:enabled=True",
+]
