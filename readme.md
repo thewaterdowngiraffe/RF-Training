@@ -2,10 +2,23 @@
 1. install python. (3.13.12 was the supported version for qweb).
 2. create a virtual python env (best practice)
 3. install the requirements `pip install -r requirements.txt`
+4. if you want the [rpaframework](https://github.com/robocorp/rpaframework?tab=readme-ov-file) library you will need to install sepratly `pip install rpaframework`. This library has install issues on python versions above 3.10.x when included in the requirements.txt file.
 ## VS code
 Extensions:
 - Auto Docstring
-    - njpwerner.autodocstring
+    > njpwerner.autodocstring
+- autopep8
+    > ms-python.autopep8
+- prettier
+    > esbenp.prettier-vscode
+- pylance
+    > ms-python.vscode-pylance
+- pylint
+    > ms-python.pylint
+- rainbow csv
+    > mechatroner.rainbow-csv
+- robo code
+    > d-biehl.robotcode
 
 
 # Robot Framework
@@ -35,7 +48,7 @@ With CRT leveraging robot framework it makes support easy and expandability endl
 ## Docs
 - [Framework Website](https://robotframework.org/)
 - [Open Source Code](https://github.com/robotframework/robotframework)
-- [[FSC Automation Options And Future State Remarks]]
+
 - [Robot framework Docs](https://docs.robotframework.org/)
 
 # Intro

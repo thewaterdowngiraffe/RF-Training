@@ -1,0 +1,33 @@
+name: Run Pylint | Python Standards Compliance
+on:
+    push:
+        branches:
+          - testing
+    pull_request:
+        branches:
+          - testing
+permissions:
+  contents: write
+  checks: write
+  pull-requests: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Pylint
+    steps:
+    - uses: actions/checkout@v6
+    - name: Set up Python Set up Python 3.12
+      uses: actions/setup-python@v6
+      with:
+        python-version: "3.12"
+    - name: Install pylint
+      run: |
+        du -h --max-depth=1 | sort -h
+        python -m pip install --upgrade pip --no-cache-dir
+        pip install "pylint>=4.0.2"  --no-cache-dir
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt --no-cache-dir
+    - name: Analysing the code with pylint
+      run: |
+        python -m pylint * -f github --rcfile config/.pylintrc --fail-under 4 --clear-cache-post-run=true

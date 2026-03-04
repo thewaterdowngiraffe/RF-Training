@@ -1,0 +1,35 @@
+name: RF Automation | unit tests
+on:
+    push:
+        branches:
+          - testing
+    pull_request:
+        branches:
+          - testing
+permissions:
+  contents: write
+  checks: write
+  pull-requests: write
+jobs:
+  build:
+    name: pytest
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v6
+      with:
+        python-version: "3.12"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip --no-cache-dir
+        pip install pytest --no-cache-dir
+        pip install -r requirements.txt --no-cache-dir
+    - name: Test with pytest
+      run: |
+        pytest --junitxml=pytest.xml --cov --cov-branch -c config/robot.toml | tee pytest-coverage.txt
+    - name: Coverage comment
+      uses: MishaKav/pytest-coverage-comment@main
+      with:
+        pytest-coverage-path: ./pytest-coverage.txt
+        junitxml-path: ./pytest.xml

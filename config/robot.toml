@@ -71,3 +71,5 @@ configure = [
     "Translate:enabled=False",           # No, i don't want the code base in multiple languages lol
     "NormalizeComments:enabled=True",
 ]
+[tool.pytest.ini_options]
+norecursedirs = ["Lesson 1","Lesson 2","Lesson 3","Lesson 4"]
