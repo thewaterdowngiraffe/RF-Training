@@ -59,4 +59,9 @@ you may customize as needed
 # Extra
 - [leetcode](https://leetcode.com/problems/remove-element/description/)
 - [regex101](https://regex101.com/)
+
+# Hints
+you will use the following:
+- Python
+- Xpath
 -

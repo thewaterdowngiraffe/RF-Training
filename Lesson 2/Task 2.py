@@ -1,19 +1,3 @@
-from race import race
-from vehicles import *
-
-# update your vehicle classes to include a `get_speed()` function that returns the current speed
-# use
-
-
-# create your vehicles within the racers list and hit play.
-# This is so you can see the impact of what you have made as well as the config.
-
-# you will have to do some physics
-
-
-# (a*t) + vi = vf
-# f/m = a
-
 """time will be constant. each time i call the function 0.25 seconds will have passed
 define the mass of each vehicle and give it a force
 lets assume the mass for cars is 1000, motorcycle: 227 and plane 5670
@@ -30,6 +14,22 @@ requred var for the above function.
 
 you will also need to create a __str__ function for the print.
 """
+from race import race
+from vehicles import *
+
+# update your vehicle classes to include a `get_speed()` function that returns the current speed
+# use
+
+
+# create your vehicles within the racers list and hit play.
+# This is so you can see the impact of what you have made as well as the config.
+
+# you will have to do some physics
+
+
+# (a*t) + vi = vf
+# f/m = a
+
 
 racers = [
     car(),

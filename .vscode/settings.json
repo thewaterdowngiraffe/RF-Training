@@ -5,7 +5,8 @@
     ],
     "files.exclude": {
         "**/.*_cache": true, //i am hiding things from you
-        "**/__pycache__": true
+        ".vscode": true,
+        ".github": true
     },
     "robotcode.robot.outputDir": "Logs",
     "robotcode.documentationServer.startOnDemand": true,
@@ -29,7 +30,8 @@
         "--rcfile=config/.pylintrc"
     ],
     "pylint.ignorePatterns": [
-        "*.ipynb"
+        "*.yml",
+        ".github\\*"
     ],
     "pylint.importStrategy": "useBundled",
     "editor.minimap.enabled": false,

@@ -1,0 +1,58 @@
+name: Run Robocop | RF Standards Compliance
+on:
+    push:
+        branches:
+          - testing
+    pull_request:
+        branches:
+          - testing
+jobs:
+  build:
+    name: Robocop
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+        - uses: actions/checkout@v6
+        - name: Set up Python 3.12
+          uses: actions/setup-python@v6
+          with:
+            python-version: "3.12"
+        - name: setup
+          run: |
+            python -m pip install --upgrade pip
+            pip install robotframework-robocop --no-cache-dir
+            pip install -r requirements.txt --no-cache-dir
+        - name: Run robocop
+          run: python -m robocop check --reports sarif,sonarqube --exit-zero --config=config/robot.toml
+        - name: uhh
+          run: cat robocop_sonar_qube.json
+        - name: annotating
+          run: |
+            echo "import json;f = open('robocop_sonar_qube.json', errors='ignore');c = json.load(f);f.close();b = {};[b.update({d['id']: d}) for d in c['rules']];a = {'INFO': 'notice', 'MINOR': 'warning', 'MAJOR': 'error'};errors = {'INFO': 0, 'MINOR': 0, 'MAJOR': 0}" > out.py
+            echo 'for e in c["issues"]:print(e, b[e["ruleId"]]["severity"]);errors[b[e["ruleId"]]["severity"]] += 1;f = b[e["ruleId"]]["id"];g = b[e["ruleId"]]["name"];h = b[e["ruleId"]]["description"];i = a[b[e["ruleId"]]["severity"]];j = e["primaryLocation"]["filePath"];p = e["primaryLocation"]["message"];bound = ", ".join([f"{ab}={e["primaryLocation"]["textRange"][aa]}" for aa, ab in [("startLine", "line"), ("startColumn", "col"), ("endLine", "endLine"), ("endColumn", "endColumn")] if aa in e["primaryLocation"]["textRange"]]);h = [h, f"{(q := h.split("::"))[0]}\n```{q[-1]}```"][int("::" in h)];print(f"::{i} file={j},{bound},title={g}::{f"""{f}:{i}\n\nIssue:\n{p}\n\nSummary:\n{h}\n"""}".replace("\n","%0A"))' >> out.py
+            echo 'exit(errors["MAJOR"] != 0)' >> out.py
+            echo "import json" >out.py
+            echo "f = open('robocop_sonar_qube.json', errors='ignore')" >>out.py
+            echo "c = json.load(f)" >>out.py
+            echo "f.close()" >>out.py
+            echo "b = {}" >>out.py
+            echo "[b.update({d['id']: d}) for d in c['rules']]" >>out.py
+            echo "a = {'LOW': 'notice', 'MEDIUM': 'warning', 'HIGH': 'error'}" >>out.py
+            echo "errors = {'LOW': 0, 'MEDIUM': 0, 'HIGH': 0}" >>out.py
+            echo 'for e in c["issues"]:' >>out.py
+            echo '    print(e, b[e["ruleId"]]["impacts"][0]["severity"])' >>out.py
+            echo '    errors[b[e["ruleId"]]["impacts"][0]["severity"]] += 1' >>out.py
+            echo '    f = b[e["ruleId"]]["id"]' >>out.py
+            echo '    g = b[e["ruleId"]]["name"]' >>out.py
+            echo '    h = b[e["ruleId"]]["description"]' >>out.py
+            echo '    i = a[b[e["ruleId"]]["impacts"][0]["severity"]]' >>out.py
+            echo '    j = e["primaryLocation"]["filePath"]' >>out.py
+            echo '    p = e["primaryLocation"]["message"]' >>out.py
+            echo '    bound = ", ".join([f"{ab}={e["primaryLocation"]["textRange"][aa]}" for aa, ab in [("startLine", "line"), ("startColumn", "col"), ("endLine", "endLine"), ("endColumn", "endColumn")] if aa in e["primaryLocation"]["textRange"]])' >>out.py
+            echo '    h = [h, f"{(q := h.split("::"))[0]}\n```{q[-1]}```"][int("::" in h)]' >>out.py
+            echo '    print(f"::{i} file={j},{bound},title={g}::{f"""{f}:{i}\n\nIssue:\n{p}\n\nSummary:\n{h}\n"""}".replace("\n", "%0A"))' >>out.py
+            echo '    print(errors["HIGH"] != 0)' >>out.py
+            echo 'exit(errors["HIGH"] != 0)' >>out.py
+        - name: RUNNING
+          run: |
+             python out.py

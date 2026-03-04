@@ -15,6 +15,9 @@ rules:
     - Robot Framework
     - readme
 
+# resources
+- [markdown](https://www.markdownguide.org/basic-syntax/)
+- [pep-8](https://pep8.readthedocs.io)
 
 # Checkers
 
