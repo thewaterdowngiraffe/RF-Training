@@ -9,7 +9,7 @@ grab the matching item for collect the following:
 - shipping cost
 - Brand
 
-you will do the same but search newegg and one other marketplace of your choosing.
+you will do the same but now on newegg.
 
 not all marketplaces are the same. there may be stuff missing.
 
@@ -20,16 +20,11 @@ to do this combine everything
 - average rating (weighed by review count)
 - expected arival date for the recommended vendor.
 - total cost (shipping included)
-- arival date
+- arival date (how many days from now or date of arival)
 - vendor
 - all other details
 
-selecting a vendor should prioritize the cheapest option and anything within 5$ will then prioritizs arival time.
-
-- 10$ 2 days
-- 11$ 1 day
-> 11$ 1 day should be used
-
+selecting a vendor should prioritize the cheapest option
 you may customize as needed
 
 # reqirements
@@ -64,4 +59,3 @@ you may customize as needed
 you will use the following:
 - Python
 - Xpath
--

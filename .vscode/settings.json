@@ -6,6 +6,7 @@
     "files.exclude": {
         "**/.*_cache": true, //i am hiding things from you
         ".vscode": true,
+        "**/__pycache__": true,
         ".github": true
     },
     "robotcode.robot.outputDir": "Logs",
@@ -54,6 +55,5 @@
     "python.analysis.languageServerMode": "light",
 },
 "python-envs.defaultEnvManager": "ms-python.python:venv",
-"python-envs.pythonProjects": [],
 "python.analysis.autoImportCompletions": false,
 }

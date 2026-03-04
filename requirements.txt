@@ -3,4 +3,6 @@ robotframework
 Qweb
 pytest-cov
 robotframework-robocop
-pylint>=4.0.2
+pylint
+# extra/ optional
+pandas
