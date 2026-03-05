@@ -171,7 +171,6 @@ Validate Phone Number Is Correct
 ```
 
 
-
 # Training
 - Python excellent resources these will explain everything.
 	- [W3 school](https://www.w3schools.com/python/default.asp)
