@@ -53,5 +53,6 @@ its recomended to use this to hide config files and cache dirs.
 7. Pull new changes from the main branch to your working branch
 8. review any changes
 9. merge changes into your branch.
+10. make all things pass
 
 
