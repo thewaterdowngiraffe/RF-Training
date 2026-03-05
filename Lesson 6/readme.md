@@ -44,7 +44,7 @@ its recomended to use this to hide config files and cache dirs.
 1. Connect to this repo.
 2. Create a branch.
 3. Add Lesson 5 to the code.
-4. Create a pull request into the `Test` branch.
+4. Create a pull request into the `testing` branch.
 5. The code will be auto reviewed, fix all issues.
     1. unit tests must pass
     2. unit test coverage must be 100%
@@ -53,5 +53,6 @@ its recomended to use this to hide config files and cache dirs.
 7. Pull new changes from the main branch to your working branch
 8. review any changes
 9. merge changes into your branch.
+10. make all things pass
 
 

@@ -52,7 +52,7 @@ jobs:
             echo '    h = [h, f"{(q := h.split("::"))[0]}\n```{q[-1]}```"][int("::" in h)]' >>out.py
             echo '    print(f"::{i} file={j},{bound},title={g}::{f"""{f}:{i}\n\nIssue:\n{p}\n\nSummary:\n{h}\n"""}".replace("\n", "%0A"))' >>out.py
             echo '    print(errors["HIGH"] != 0)' >>out.py
-            echo 'exit(errors["HIGH"] != 0)' >>out.py
+            echo 'exit((errors["HIGH"]+errors["MEDIUM"]+errors["LOW"]) != 0)' >>out.py
         - name: RUNNING
           run: |
              python out.py
