@@ -1,5 +1,6 @@
 [tool.robocop]
 
+exclude  = ["Lesson 1","Lesson 2","Lesson 3/solution","Lesson 4","Lesson 5/solution"]
 [tool.robocop.lint]
 
 ignore = ["DEPR05", "VAR04", "VAR05", "DEPR06", "NAME08", "VAR07", "MISC13","LEN03","LEN08"]
@@ -72,4 +73,4 @@ configure = [
     "NormalizeComments:enabled=True",
 ]
 [tool.pytest.ini_options]
-norecursedirs = ["Lesson 1","Lesson 2","Lesson 3","Lesson 4"]
+norecursedirs = ["Lesson 1","Lesson 2","Lesson 3/solution","Lesson 4","Lesson 5/solution"]
