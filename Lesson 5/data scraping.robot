@@ -7,7 +7,7 @@ Documentation    this scrapes data from amazon and newegg.
 
 
 *** Variables ***
-${shopping list}    Lesson 5/shopping_list.csv
+${shopping list}    shopping_list.csv
 
 
 *** Test Cases ***
