@@ -6,3 +6,4 @@ robotframework-robocop
 pylint
 # extra/ optional
 pandas
+rpaframework
